@@ -19,7 +19,7 @@ const AddTransaction = ( {transactions, clicked} ) => {
                 </div>
             </form>
 
-            <button className='btn btn-success'>Add</button>
+            <button className='btn btn-success' onClick={() => clicked( {id: transactions.length + 1, label: purpose, amount: amount} )}>Add</button>
         </div>
     </div>
   )

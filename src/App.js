@@ -16,16 +16,29 @@ function App() {
     { id: 'transaction005', label: 'Food', amount: -250 },
   ] )
 
+  const onDeleteTransactionHandler = (transactionId) => {
+    const transactionCopy = [ ...transactions ]
+    const newTransactions = transactionCopy.filter( transaction => transaction.id !== transactionId )
+
+    setTransactions(newTransactions)
+  }
+
+  const addTransactionHandler = (transaction) => {
+    const transactionCopy = [ ...transactions ]
+    transactionCopy.push(transaction)
+    setTransactions(transactionCopy)
+  }
+
   return (
     <div>
       <div className="container-fluid">
         <Header title="Expense Tracker" />
       </div>
       <div className="container">
-        <Balance transactions={transactions} />
+        <Balance transactions={transactions} >Hello, This is a Balance Component</Balance>
         <IncomeExpense transactions={transactions} />
-        <TransactionList transactions={transactions} />
-        <AddTransaction />
+        <TransactionList clicked={onDeleteTransactionHandler} transactions={transactions} />
+        <AddTransaction transactions={transactions} clicked={addTransactionHandler} />
       </div>
     </div>
   );

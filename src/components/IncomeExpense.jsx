@@ -1,11 +1,12 @@
 import React from 'react'
+import Aux from './HOC/Aux'
 
 const IncomeExpense = ( {transactions} ) => {
     let income = 0
     let expense = 0
 
     transactions.forEach( transaction => {
-        transaction.amount < 0 ? expense += transaction.amount : income += transaction.amount 
+        transaction.amount < 0 ? expense += parseInt(transaction.amount) : income += parseInt(transaction.amount) 
     } )
 
     const boxStyles = {
@@ -14,7 +15,7 @@ const IncomeExpense = ( {transactions} ) => {
     }
 
   return (
-    <div>
+    <Aux>
         <h2>Total Transactions - </h2>
         <div className="row">
             <div style={boxStyles} className="col-xs-6">
@@ -26,7 +27,7 @@ const IncomeExpense = ( {transactions} ) => {
                 <p className='lead' style={{ color: 'red' }}> $ {expense} </p>
             </div>
         </div>
-    </div>
+    </Aux>
   )
 }
 

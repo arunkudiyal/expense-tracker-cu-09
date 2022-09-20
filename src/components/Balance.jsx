@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Balance = ( {transactions} ) => {
+const Balance = ( props ) => {
   let myBalance = 0
 
-  transactions.forEach(transaction => myBalance += parseInt(transaction.amount) )
+  props.transactions.forEach(transaction => myBalance += parseInt(transaction.amount) )
 
   return (
     <div>
