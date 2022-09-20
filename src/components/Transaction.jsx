@@ -1,16 +1,23 @@
 import React from 'react'
 
-const Transaction = ( {transaction} ) => {
+const Transaction = ( {amount, label} ) => {
     let color = ''
-    transaction.amount < 0 ? color = 'red' : color = 'green'
+    amount >= 0 ? color = 'green' : color = 'red'
+
+    let transactionStyles = {
+        display: 'flex', 
+        justifyContent: 'space-around', 
+        backgroundColor: '#f7f7f7', 
+        padding: '15px', 
+        borderLeft: `5px solid ${color}`, 
+        margin: '15px'
+    }
 
   return (
-    <div style={{ margin: '12px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-around', margiBottom: '12px', borderLeft: `3px solid ${color}` }}>
-            <h3>{transaction.label}</h3>
-            <p className='lead'> $ {transaction.amount}</p>
-            <i className="fa-regular fa-x"></i>
-        </div>
+    <div style={transactionStyles}>
+        <li style={{ fontSize: '20px' }}> <i>{label}</i> </li>
+        <li style={{ fontSize: '20px' }}>$ {amount} </li>
+        <i className="fa-solid fa-x"></i>
     </div>
   )
 }

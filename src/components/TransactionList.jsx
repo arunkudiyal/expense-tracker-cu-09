@@ -4,12 +4,17 @@ import Transaction from './Transaction'
 const TransactionList = ( {transactions} ) => {
   return (
     <div>
-        <h2> Your Transaction History - </h2>
-        <div style={{ border: '2px solid #f7f7f7', margin: '10px' }}>
-            {
-                transactions.map( transaction => 
-                    <Transaction key={transaction.id} transaction={transaction} /> )
-            }
+        <h3>Your statement is as follows - </h3>
+        <div>
+            <ul className='list-unstyled'>
+                {
+                    transactions.map( (transaction ) => 
+                      <Transaction
+                        key={transaction.id}
+                        amount={transaction.amount}
+                        label={transaction.label} /> )
+                }
+            </ul>
         </div>
     </div>
   )

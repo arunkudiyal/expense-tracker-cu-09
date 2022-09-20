@@ -1,22 +1,28 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState } from 'react';
 
-const AddTransaction = () => {
-    const [label, setLabel] = useState("")
+const AddTransaction = ( {transactions, clicked} ) => {
+    const [purpose, setPurpose] = useState('')
     const [amount, setAmount] = useState(0)
 
   return (
-    <div style={{ border: '3px solid #f4f4f4', padding: '12px' }}>
-        <h2>Add Transaction - </h2>
-        <form className='form-group'>
-            <input className='form-control' value={label} onChange={(e) => setLabel(e.target.value)} type="text" placeholder='transaction label...' /> <br />
+    <div style={ {marginBottom: '25px'} }>
+        <div className='container'>
+            <h3>Add your transaction - </h3>
+            <form style={{ padding: '15px', margin: '15px', border: '1px solid black' }} >
+                <div className='form-group'>
+                    <input type="text" placeholder='enter the purpose of the transaction...' className='form-control' value={purpose} onChange={ (event) => setPurpose(event.target.value) } />
+                </div>
+                
+                <div className="form-group">
+                    <input type="text" placeholder='enter the amount of the transaction...' className='form-control' value={amount} onChange={ (event) => setAmount(event.target.value) } />
+                </div>
+            </form>
 
-            <input className='form-control' value={amount} onChange={(e) => setAmount(e.target.value)} type="text" placeholder='transaction amount...' />
-
-            <button className='btn btn-primary'>ADD</button>
-        </form>
+            <button className='btn btn-success'>Add</button>
+        </div>
     </div>
   )
 }
 
-export default AddTransaction
+export default AddTransaction;

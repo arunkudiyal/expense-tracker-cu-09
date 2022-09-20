@@ -2,10 +2,8 @@ import React from 'react'
 
 const Header = ( {title} ) => {
   return (
-    <div>
-        <h1 className='page-header'>{ title }</h1>
-    </div>
+    <h1 className='page-header'>{title}</h1>
   )
 }
 
-export default Header
+export default Header;

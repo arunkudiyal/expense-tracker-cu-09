@@ -1,19 +1,14 @@
 import React from 'react'
 
 const Balance = ( {transactions} ) => {
-    let balance = 0
-    transactions.forEach( transaction => balance += transaction.amount )
+  let myBalance = 0
 
-    const boxStyles = {
-        border: '1px solid #f7f7f7',
-        padding: '12px',
-        margin: '12px'
-    }
+  transactions.forEach(transaction => myBalance += parseInt(transaction.amount) )
 
   return (
-    <div style={boxStyles}>
-        <h3>Your Balace - </h3>
-        <p className='lead'> $ {balance} </p>
+    <div>
+        <h3>Your Balance - </h3>
+        <p className='lead'>$ {myBalance}</p>
     </div>
   )
 }
